@@ -14,7 +14,7 @@ class CardGame
 #there is no initialize method on this class, but the self method below may require an object to have been initialized?
 
   def checkforAce(card)
-    if card.value = 1
+    if card.value = 1 #this should be == rather than just =
       return true
     else
       return false
@@ -38,5 +38,5 @@ def self.cards_total(cards)#if the CardGame has an initialize method then you wo
   end  
 end
 
-
+# the class is missing an end to close it.
 ```
