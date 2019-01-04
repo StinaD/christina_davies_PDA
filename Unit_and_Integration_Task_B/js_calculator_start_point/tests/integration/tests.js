@@ -14,6 +14,22 @@ describe('calculator functionality', function() {
     running_total = element(by.css('#running_total'))
     element(by.css('#number2')).click();
     expect(running_total.getAttribute('value')).to.eventually.equal('2')
-  })
+  });
+
+  it('should have working arithmetical operations', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number2')).click();
+    element(by.css('#operator_add')).click();
+    element(by.css('#number5')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('7')
+  });
+
+  it('should be able to chain multiple ', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number2')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('2')
+  });
+
 
 });
