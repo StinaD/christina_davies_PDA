@@ -12,7 +12,6 @@ describe('calculator', function () {
   });
 
   it('should add two numbers and return result', function(){
-    calculator.clearClick();
     const number = 4;
     calculator.previousTotal = 1;
     calculator.add(number);
@@ -21,7 +20,6 @@ describe('calculator', function () {
   });
 
   it('should subtract one number from another and return result', function(){
-    calculator.clearClick();
     const number = 4;
     calculator.previousTotal = 7;
     calculator.subtract(number);
@@ -30,7 +28,6 @@ describe('calculator', function () {
   });
 
   it('should multiply two numbers together and return result', function(){
-    calculator.clearClick();
     const number = 5;
     calculator.previousTotal = 3;
     calculator.multiply(number);
@@ -39,7 +36,6 @@ describe('calculator', function () {
   });
 
   it('should divide one number by another and return result', function(){
-    calculator.clearClick();
     const number = 7;
     calculator.previousTotal = 21;
     calculator.divide(number);
@@ -48,7 +44,6 @@ describe('calculator', function () {
   });
 
   it('should concatenate multiple number clicks', function (){
-    calculator.clearClick();
     const firstNumber = 4;
     const secondNumber = 3;
     const thirdNumber = 2;
@@ -60,7 +55,6 @@ describe('calculator', function () {
   });
 
   it('should chain multiple operations together', function (){
-    calculator.clearClick();
     calculator.previousOperator = '+';
     calculator.previousTotal = 2;
     calculator.runningTotal = 4;
@@ -70,6 +64,15 @@ describe('calculator', function () {
     calculator.operatorClick(secondOperator);
     const actual = calculator.runningTotal;
     assert.strictEqual(actual, 36);
+  });
+
+  it('should clear the running total without affecting the calculation', function(){
+    calculator.previousOperator = '+';
+    calculator.previousTotal = 10;
+    calculator.runningTotal = 5;
+    calculator.clearClick();
+    const actual = calculator.runningTotal;
+    assert.strictEqual(actual, 0);
   });
 
 });
